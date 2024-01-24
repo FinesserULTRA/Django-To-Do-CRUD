@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
-requests = "*"
-django-rest-framework = "*"
+djangorestframework = "*"
+markdown = "*"
 
 [dev-packages]
 
