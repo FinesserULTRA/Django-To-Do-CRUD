@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "cf17896e-b17e-4538-b7cc-f36d7c98ad54",
+		"name": "Todo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32429286"
+	},
+	"item": [
+		{
+			"name": "sign up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Joe_father\",\r\n    \"password\":\"password.123\",\r\n    \"password2\":\"password.123\",\r\n    \"first_name\":\"test\",\r\n    \"last_name\":\"user\",\r\n    \"email\":\"test@456.com\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/register/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Joe_father\",\r\n    \"password\":\"password.123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Todo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": 8,\r\n    \"title\":\"test\",\r\n    \"description\":\"Test description\",\r\n    \"date\":\"2024-01-24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/todo/create/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Todo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/todo/20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all Todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/todo/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Todo",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_completed\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/todo/update/18/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						"update",
+						"18",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Todo",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/todo/delete/18/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						"delete",
+						"18",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logout/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http:\\\\127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "Token b4ba73e8ff123c1ba34e051baa1a590594d173aa",
+			"type": "string"
+		}
+	]
+}
