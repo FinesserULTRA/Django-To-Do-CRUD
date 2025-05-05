@@ -1,0 +1,8 @@
+asgiref==3.8.1
+django==5.0.7
+djangorestframework==3.14.0
+markdown==3.5.2
+pyjwt==2.8.0
+pytz==2023.3.post1
+sqlparse==0.5.0
+tzdata==2023.4
